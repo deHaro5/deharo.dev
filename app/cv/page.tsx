@@ -131,6 +131,37 @@ export default function CVPage() {
               </div>
             </div>
 
+            {/* Testum */}
+            <div className="border-l-2 border-zinc-800 pl-4">
+              <div className="flex items-start justify-between mb-2">
+                <div>
+                  <h3 className="text-lg font-medium text-zinc-100 mb-1">
+                    Testum
+                  </h3>
+                  <p className="text-zinc-400 text-sm mb-3">
+                    Plataforma de exámenes tipo test con IA · Proyecto universitario
+                  </p>
+                </div>
+                <span className="px-2 py-0.5 text-xs font-medium rounded bg-green-500/10 text-green-400 border border-green-500/20">
+                  Live
+                </span>
+              </div>
+              <ul className="list-disc list-inside text-zinc-400 space-y-1 text-sm mb-3">
+                <li>Next.js 14 con TypeScript</li>
+                <li>Chat IA con OpenAI integrado para asistencia</li>
+                <li>Supabase Auth y PostgreSQL</li>
+                <li>+1600 preguntas y +21400 respuestas acumuladas</li>
+                <li>Crecimiento orgánico (boca a boca entre estudiantes)</li>
+              </ul>
+              <div className="flex flex-wrap gap-2">
+                <span className="badge">Next.js</span>
+                <span className="badge">OpenAI</span>
+                <span className="badge">Supabase</span>
+                <span className="badge">PostgreSQL</span>
+                <span className="badge">UX</span>
+              </div>
+            </div>
+
             {/* Demo Chat IA */}
             <div className="border-l-2 border-zinc-800 pl-4">
               <div className="flex items-start justify-between mb-2">

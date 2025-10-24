@@ -109,7 +109,7 @@ export default function ProjectPage({ params }: Props) {
                 <svg className="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
                 </svg>
-                Ver Appstore
+                {project.liveUrl.includes('apps.apple.com') ? 'Ver en App Store' : 'Ver Web'}
               </a>
             )}
             {project.repoUrl && (
@@ -205,28 +205,74 @@ export default function ProjectPage({ params }: Props) {
           {project.images && project.images.length > 0 ? (
             <section>
               <h2 className="text-2xl font-bold text-white mb-6">Capturas de pantalla</h2>
-              <div className={`grid gap-6 ${project.images?.length === 1 ? 'md:grid-cols-1' : project.images?.length === 2 ? 'md:grid-cols-1 lg:grid-cols-2' : 'md:grid-cols-3'}`}>
-                {project.images.map((image, index) => (
-                  <div 
-                    key={index} 
-                    className="group relative flex items-center justify-center"
-                  >
-                    <Image
-                      src={image}
-                      alt={`${project.title} screenshot ${index + 1}`}
-                      width={1200}
-                      height={800}
-                      className={`w-auto h-auto ${project.images?.length === 1 ? 'max-h-[800px]' : project.images?.length === 2 ? 'max-h-[600px]' : 'max-h-[400px]'} max-w-full object-contain rounded-2xl border border-zinc-800 hover:border-zinc-700 transition-all duration-300 hover:scale-[1.02]`}
-                    />
-                    {/* Overlay on hover */}
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-center pb-4">
-                      <span className="text-white text-sm font-medium">
-                        Vista {index + 1}
-                      </span>
-                    </div>
+              {project.slug === 'testum' ? (
+                // Layout 2-1 triangular especial para Testum
+                <div className="grid gap-6">
+                  <div className="grid md:grid-cols-2 gap-6">
+                    {project.images.slice(0, 2).map((image, index) => (
+                      <div 
+                        key={index} 
+                        className="group relative flex items-center justify-center"
+                      >
+                        <Image
+                          src={image}
+                          alt={`${project.title} screenshot ${index + 1}`}
+                          width={1200}
+                          height={800}
+                          className="w-full h-auto object-contain rounded-2xl border border-zinc-800 hover:border-zinc-700 transition-all duration-300 hover:scale-[1.02]"
+                        />
+                        {/* Overlay on hover */}
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-center pb-4 rounded-2xl">
+                          <span className="text-white text-sm font-medium">
+                            Vista {index + 1}
+                          </span>
+                        </div>
+                      </div>
+                    ))}
                   </div>
-                ))}
-              </div>
+                  {project.images[2] && (
+                    <div className="group relative flex items-center justify-center max-w-4xl mx-auto">
+                      <Image
+                        src={project.images[2]}
+                        alt={`${project.title} screenshot 3`}
+                        width={1600}
+                        height={900}
+                        className="w-full h-auto object-contain rounded-2xl border border-zinc-800 hover:border-zinc-700 transition-all duration-300 hover:scale-[1.02]"
+                      />
+                      {/* Overlay on hover */}
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-center pb-4 rounded-2xl">
+                        <span className="text-white text-sm font-medium">
+                          Vista 3
+                        </span>
+                      </div>
+                    </div>
+                  )}
+                </div>
+              ) : (
+                // Layout por defecto para otros proyectos
+                <div className={`grid gap-6 ${project.images?.length === 1 ? 'md:grid-cols-1' : project.images?.length === 2 ? 'md:grid-cols-1 lg:grid-cols-2' : 'md:grid-cols-3'}`}>
+                  {project.images.map((image, index) => (
+                    <div 
+                      key={index} 
+                      className="group relative flex items-center justify-center"
+                    >
+                      <Image
+                        src={image}
+                        alt={`${project.title} screenshot ${index + 1}`}
+                        width={1200}
+                        height={800}
+                        className={`w-auto h-auto ${project.images?.length === 1 ? 'max-h-[800px]' : project.images?.length === 2 ? 'max-h-[600px]' : 'max-h-[400px]'} max-w-full object-contain rounded-2xl border border-zinc-800 hover:border-zinc-700 transition-all duration-300 hover:scale-[1.02]`}
+                      />
+                      {/* Overlay on hover */}
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-center pb-4">
+                        <span className="text-white text-sm font-medium">
+                          Vista {index + 1}
+                        </span>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              )}
             </section>
           ) : (
             <section>

@@ -28,12 +28,20 @@ export default function ProjectsPage() {
 
       {/* Projects Grid */}
       {projects.length > 0 ? (
-        <section className="max-w-5xl mx-auto">
-          <div className="grid md:grid-cols-2 gap-6">
-            {projects.map((project) => (
+        <section className="max-w-5xl mx-auto space-y-6">
+          {/* Proyectos principales (todos excepto portfolio) */}
+          <div className="grid md:grid-cols-2 gap-6 items-stretch">
+            {projects.filter(p => p.slug !== 'portfolio').map((project) => (
               <ProjectCard key={project.slug} project={project} />
             ))}
           </div>
+          
+          {/* Portfolio Personal - altura dinámica, siempre al final */}
+          {projects.find(p => p.slug === 'portfolio') && (
+            <div>
+              <ProjectCard project={projects.find(p => p.slug === 'portfolio')!} />
+            </div>
+          )}
         </section>
       ) : (
         <div className="max-w-2xl mx-auto text-center py-16">

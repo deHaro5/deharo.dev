@@ -1,11 +1,17 @@
+'use client';
+
 import type { Project } from '@/app/data/projects';
 import Image from 'next/image';
 import Link from 'next/link';
 
 export default function ProjectCard({ project }: { project: Project }) {
-  return (
-    <Link href={`/projects/${project.slug}`}>
-      <article className="card group cursor-pointer">
+  // Si es el portfolio, redirigir al GitHub directamente
+  const isPortfolio = project.slug === 'portfolio';
+  const href = isPortfolio && project.repoUrl ? project.repoUrl : `/projects/${project.slug}`;
+  const isExternal = isPortfolio && project.repoUrl;
+  
+  const content = (
+    <article className={`card group cursor-pointer ${isPortfolio ? '' : 'h-full'} flex flex-col`}>
       {/* Logo and Header */}
       <div className="flex items-start gap-4 mb-4">
         {project.logo && (
@@ -42,7 +48,7 @@ export default function ProjectCard({ project }: { project: Project }) {
       </div>
 
       {/* Description */}
-      <p className="text-zinc-400 text-sm mb-4 leading-relaxed">
+      <p className={`text-zinc-400 text-sm mb-4 leading-relaxed ${isPortfolio ? '' : 'flex-grow'}`}>
         {project.longDescription || project.description}
       </p>
 
@@ -65,8 +71,9 @@ export default function ProjectCard({ project }: { project: Project }) {
             target="_blank"
             rel="noopener noreferrer"
             className="text-zinc-400 hover:text-zinc-100 transition-colors underline"
+            onClick={(e) => e.stopPropagation()}
           >
-            Ver demo ↗
+            {project.liveUrl.includes('apps.apple.com') ? 'Ver en App Store' : 'Ver web'} ↗
           </a>
         )}
         {project.repoUrl && (
@@ -75,6 +82,7 @@ export default function ProjectCard({ project }: { project: Project }) {
             target="_blank"
             rel="noopener noreferrer"
             className="text-zinc-400 hover:text-zinc-100 transition-colors underline"
+            onClick={(e) => e.stopPropagation()}
           >
             Código ↗
           </a>
@@ -89,12 +97,27 @@ export default function ProjectCard({ project }: { project: Project }) {
       )}
       
       {/* Read More Hint */}
-      <div className="mt-4 pt-4 border-t border-zinc-900 opacity-0 group-hover:opacity-100 transition-opacity">
-        <span className="text-sm text-zinc-500">
-          Ver más detalles →
-        </span>
-      </div>
-      </article>
+      {!isPortfolio && (
+        <div className="mt-4 pt-4 border-t border-zinc-900 opacity-0 group-hover:opacity-100 transition-opacity">
+          <span className="text-sm text-zinc-500">
+            Ver más detalles →
+          </span>
+        </div>
+      )}
+    </article>
+  );
+
+  if (isExternal) {
+    return (
+      <a href={href} target="_blank" rel="noopener noreferrer" className="h-full">
+        {content}
+      </a>
+    );
+  }
+
+  return (
+    <Link href={href} className="h-full">
+      {content}
     </Link>
   );
 }

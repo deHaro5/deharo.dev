@@ -101,12 +101,55 @@ export const projects: Project[] = [
     disclaimer: 'Proyecto personal sin afiliación oficial con Mistral AI.'
   },
   {
+    slug: 'testum',
+    title: 'Testum',
+    description: 'Plataforma de exámenes tipo test con IA',
+    longDescription: 'Testum es una plataforma web desarrollada con Next.js que permite crear y realizar exámenes tipo test de forma rápida y efectiva. Los usuarios pueden subir sus propios exámenes y resolverlos con una experiencia UX altamente pulida. El proyecto alcanzó +1600 preguntas para resolver y +21400 respuestas acumuladas, difundido únicamente por boca a boca entre estudiantes del grado de ADE de mi universidad. Incluye un chat de IA integrado con OpenAI para ayudar a los usuarios mientras responden, autenticación con Supabase, y base de datos PostgreSQL para almacenar toda la información.',
+    liveUrl: 'https://testum.es',
+    logo: '/logotestum.png',
+    images: [
+      '/projects/testum/p1.png',
+      '/projects/testum/p1.5.png',
+      '/projects/testum/p2.png',
+    ],
+    tags: ['Next.js', 'OpenAI', 'Supabase', 'PostgreSQL', 'Edge Functions', 'TypeScript', 'UX'],
+    features: [
+      'Creación y gestión de exámenes tipo test personalizados',
+      'Chat de IA integrado con OpenAI para asistencia mientras respondes',
+      'Sistema de usuarios con Supabase Auth',
+      'Base de datos PostgreSQL para almacenar exámenes y respuestas',
+      'Edge Functions para rendimiento óptimo',
+      '+1600 preguntas disponibles para resolver',
+      '+21400 respuestas acumuladas por usuarios',
+      'Controles UX altamente pulidos y optimizados',
+      'Interfaz responsiva y moderna',
+      'Sistema de estadísticas y progreso'
+    ],
+    challenges: [
+      'Diseñar una experiencia UX fluida para resolver exámenes rápidamente',
+      'Integración de IA para asistencia contextual durante los exámenes',
+      'Optimización de consultas PostgreSQL para gran volumen de respuestas',
+      'Gestión de estado complejo para tracking de progreso',
+      'Escalabilidad para múltiples usuarios simultáneos'
+    ],
+    learnings: [
+      'Arquitectura de aplicaciones web de alto rendimiento',
+      'Integración de OpenAI en contextos educativos',
+      'Diseño UX para plataformas de evaluación',
+      'Optimización de bases de datos con PostgreSQL',
+      'Crecimiento orgánico de producto (boca a boca)'
+    ],
+    featured: true,
+    status: 'live',
+    disclaimer: 'Proyecto personal desarrollado para estudiantes de ADE de mi universidad.'
+  },
+  {
     slug: 'portfolio',
     title: 'Portfolio Personal',
     description: 'Portfolio minimalista dark mode con Next.js',
     longDescription: 'Este sitio web. Portfolio personal construido con Next.js 14 App Router, TypeScript y Tailwind CSS. Diseño minimalista en dark mode.',
     liveUrl: 'https://deharo.dev',
-    repoUrl: 'https://github.com/deHaro5/deharo-dev',
+    repoUrl: 'https://github.com/deHaro5',
     tags: ['Next.js', 'Tailwind CSS', 'TypeScript', 'React'],
     featured: false,
     status: 'live'
