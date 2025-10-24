@@ -1,0 +1,144 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --font-geist-sans: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-geist-mono: ui-monospace, Menlo, Monaco, "Cascadia Mono", "Segoe UI Mono", "Roboto Mono", "Courier New", monospace;
+}
+
+@layer base {
+  html {
+    @apply scroll-smooth;
+  }
+  
+  body {
+    @apply bg-black text-zinc-100 antialiased;
+  }
+}
+
+@layer components {
+  .btn {
+    @apply inline-flex items-center justify-center px-5 py-2.5 rounded-md font-medium transition-all duration-150 focus:outline-none;
+  }
+  
+  .btn-primary {
+    @apply bg-zinc-100 text-black hover:bg-white;
+  }
+  
+  .btn-secondary {
+    @apply bg-zinc-900 text-zinc-100 border border-zinc-800 hover:bg-zinc-800 hover:border-zinc-700;
+  }
+  
+  .card {
+    @apply bg-zinc-950 border border-zinc-900 rounded-lg p-6 transition-all duration-200 hover:border-zinc-800;
+  }
+  
+  .badge {
+    @apply inline-flex items-center px-2.5 py-1 rounded text-xs font-medium bg-zinc-900 text-zinc-400 border border-zinc-800;
+  }
+}
+
+/* Print/PDF Styles */
+@media print {
+  @page {
+    size: A4;
+    margin: 1.5cm;
+  }
+
+  html, body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    overflow: visible;
+  }
+
+  body {
+    background: white !important;
+    color: black !important;
+  }
+
+  /* Hide elements that shouldn't be in PDF */
+  .no-print,
+  button,
+  a[download] {
+    display: none !important;
+  }
+
+  /* Ensure sections don't break across pages */
+  section {
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+
+  /* Avoid breaking list items */
+  li {
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+
+  /* Adjust text colors for print */
+  h1, h2, h3, h4, h5, h6 {
+    color: black !important;
+    page-break-after: avoid;
+  }
+
+  p, li, span, div {
+    color: #333 !important;
+  }
+
+  .text-zinc-400,
+  .text-zinc-500 {
+    color: #555 !important;
+  }
+
+  .text-zinc-300,
+  .text-zinc-100,
+  .text-white {
+    color: #222 !important;
+  }
+
+  /* Adjust borders for print */
+  .border-zinc-800,
+  .border-zinc-900,
+  .border-l-2 {
+    border-color: #ccc !important;
+  }
+
+  /* Badge styles for print */
+  .badge {
+    background: #f0f0f0 !important;
+    border: 1px solid #ccc !important;
+    color: #333 !important;
+  }
+
+  /* Ensure container fits properly */
+  .container {
+    max-width: 100% !important;
+    padding: 0 !important;
+  }
+
+  /* Fix spacing for print */
+  .max-w-4xl {
+    max-width: 100% !important;
+  }
+
+  /* Ensure links are visible */
+  a {
+    color: #0066cc !important;
+    text-decoration: underline !important;
+  }
+
+  /* Status badges */
+  .bg-green-500\/10,
+  .bg-zinc-800 {
+    background: #e8e8e8 !important;
+    border: 1px solid #999 !important;
+  }
+
+  .text-green-400 {
+    color: #006600 !important;
+  }
+}
+

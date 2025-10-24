@@ -1,0 +1,173 @@
+%PDF-1.7
+1 0 obj
+<< /Type /Catalog /Pages 2 0 R >>
+endobj
+2 0 obj
+<< /Type /Pages /Kids [3 0 R] /Count 1 >>
+endobj
+3 0 obj
+<< /Type /Page /Parent 2 0 R /Resources 4 0 R /MediaBox [0 0 595 842] /Contents 5 0 R >>
+endobj
+4 0 obj
+<< /Font << /F1 6 0 R /F2 7 0 R /F3 8 0 R >> >>
+endobj
+5 0 obj
+<< /Length 4600 >>
+stream
+BT
+/F1 24 Tf
+50 792 Td
+(FRANCISCO DE HARO) Tj
+0 -30 Td
+/F2 11 Tf
+(Desarrollador Full Stack | Next.js | IA) Tj
+0 -25 Td
+/F3 10 Tf
+(Email: frandeharo55@gmail.com | GitHub: github.com/deHaro5 | Portfolio: deharo.dev) Tj
+0 -35 Td
+/F1 14 Tf
+(RESUMEN) Tj
+0 -20 Td
+/F3 10 Tf
+0.2 Tw
+(Desarrollador full-stack con foco en Next.js e IA. He publicado Repai Trainer \(Expo/React) Tj
+0 -14 Td
+(Native\) con suscripciones y backend en Supabase, pagos con RevenueCat, integracion de) Tj
+0 -14 Td
+(APIs IA \(GPT-5\) y gestion en App Store Connect. Me muevo comodo en ciclos rapidos y) Tj
+0 -14 Td
+(entregas continuas. Alta disponibilidad y experiencia entregando productos end-to-end.) Tj
+0 Tw
+0 -30 Td
+/F1 14 Tf
+(QUE APORTO) Tj
+0 -18 Td
+/F3 10 Tf
+(- Diseno y desarrollo frontend \(Next.js/React\) y movil \(Expo\)) Tj
+0 -14 Td
+(- APIs y backend en Node/TypeScript \(Supabase, PostgreSQL\)) Tj
+0 -14 Td
+(- Autenticacion y pagos \(Clerk, RevenueCat, suscripciones\)) Tj
+0 -14 Td
+(- Integracion de LLMs \(Mistral, OpenAI, GPT-5\), orquestacion de prompts) Tj
+0 -14 Td
+(- DevOps practico: Vercel, Cloudflare, GitHub, CI/CD) Tj
+0 -30 Td
+/F1 14 Tf
+(PROYECTOS) Tj
+0 -20 Td
+/F2 12 Tf
+(Repai Trainer) Tj
+/F3 9 Tf
+( | Proyecto propio - En pausa) Tj
+0 -15 Td
+/F3 10 Tf
+(Desarrollo de App movil iOS \(Fullstack\)) Tj
+0 -14 Td
+(- Expo/React Native para frontend movil iOS) Tj
+0 -14 Td
+(- Supabase para backend y PostgreSQL) Tj
+0 -14 Td
+(- RevenueCat para pagos y suscripciones) Tj
+0 -14 Td
+(- Gestion completa en App Store Connect) Tj
+0 -14 Td
+(- Integracion de APIs IA \(GPT-5\) para generacion de entrenamientos) Tj
+0 -14 Td
+(Stack: Expo, React Native, Supabase, RevenueCat, APIs IA, GPT-5) Tj
+0 -20 Td
+/F2 12 Tf
+(Demo Chat IA) Tj
+0 -15 Td
+/F3 10 Tf
+(Interfaz de chat con LLM y streaming) Tj
+0 -14 Td
+(- Next.js 14 con Edge Functions) Tj
+0 -14 Td
+(- Integracion de Mistral AI con streaming) Tj
+0 -14 Td
+(- Manejo de contexto y prompting optimizado) Tj
+0 -14 Td
+(Stack: Next.js, Mistral AI, Edge Functions) Tj
+0 -30 Td
+/F1 14 Tf
+(STACK TECNOLOGICO) Tj
+0 -18 Td
+/F2 11 Tf
+(Frontend & Mobile) Tj
+0 -14 Td
+/F3 10 Tf
+(Next.js, React, TypeScript, Expo, React Native, Xcode, Tailwind CSS) Tj
+0 -18 Td
+/F2 11 Tf
+(Backend & Database) Tj
+0 -14 Td
+/F3 10 Tf
+(Node.js, TypeScript, Supabase, PostgreSQL) Tj
+0 -18 Td
+/F2 11 Tf
+(Auth & Payments) Tj
+0 -14 Td
+/F3 10 Tf
+(Clerk, RevenueCat, App Store Connect) Tj
+0 -18 Td
+/F2 11 Tf
+(IA & APIs) Tj
+0 -14 Td
+/F3 10 Tf
+(LLMs, Mistral AI, OpenAI, GPT-5, Prompting, API Integration) Tj
+0 -18 Td
+/F2 11 Tf
+(DevOps & Tools) Tj
+0 -14 Td
+/F3 10 Tf
+(Vercel, Cloudflare, GitHub, CI/CD, Cursor) Tj
+0 -30 Td
+/F1 14 Tf
+(EDUCACION) Tj
+0 -18 Td
+/F2 11 Tf
+(Grado en Administracion y Direccion de Empresas \(ADE\)) Tj
+/F3 9 Tf
+( - Cursando 3er curso) Tj
+0 -14 Td
+/F3 10 Tf
+(Aprendizaje rapido y autonomia tecnica) Tj
+0 -30 Td
+/F1 14 Tf
+(IDIOMAS) Tj
+0 -18 Td
+/F3 10 Tf
+(Espanol: Nativo   |   Ingles: Avanzado   |   Frances: Basico) Tj
+0 -35 Td
+/F3 9 Tf
+0.5 0.5 0.5 rg
+(Disponible de inmediato para colaboraciones y nuevas oportunidades.) Tj
+ET
+endstream
+endobj
+6 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica-Bold >>
+endobj
+7 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica-BoldOblique >>
+endobj
+8 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica >>
+endobj
+xref
+0 9
+0000000000 65535 f
+0000000015 00000 n
+0000000068 00000 n
+0000000125 00000 n
+0000000233 00000 n
+0000000295 00000 n
+0000004947 00000 n
+0000005028 00000 n
+0000005120 00000 n
+trailer
+<< /Size 9 /Root 1 0 R >>
+startxref
+5194
+%%EOF
