@@ -19,6 +19,46 @@ export type Project = {
 
 export const projects: Project[] = [
   {
+    slug: 'mistral-chat',
+    title: 'Demo Mistral Chat',
+    description: 'Interfaz de chat con Mistral AI y streaming',
+    longDescription: 'Una aplicación web de chat moderna que demuestra las capacidades de Mistral AI. Construida con Next.js 14 y desplegada en Vercel Edge, implementa streaming de respuestas en tiempo real para una experiencia de usuario fluida y responsiva. El proyecto explora las mejores prácticas de integración de LLMs en aplicaciones web, incluyendo manejo de contexto, optimización de prompts, y gestión eficiente del estado de conversación.',
+    liveUrl: 'https://mistral-demo.deharo.dev',
+    repoUrl: 'https://github.com/deHaro5/Mistral-Chat',
+    logo: '/logomistral.png',
+    images: [
+      '/projects/chat-demo/p0.png',
+    ],
+    tags: ['Next.js', 'Mistral AI', 'TypeScript', 'Edge Functions', 'Streaming'],
+    features: [
+      'Streaming de respuestas en tiempo real',
+      'Interfaz de chat moderna y responsiva',
+      'Manejo de contexto de conversación',
+      'Edge Functions para latencia mínima',
+      'Optimización de prompts para mejores respuestas',
+      'Gestión de estado con React hooks',
+      'Diseño dark mode minimalista',
+      'Despliegue automático con Vercel'
+    ],
+    challenges: [
+      'Implementación de streaming SSE (Server-Sent Events)',
+      'Manejo correcto del contexto entre múltiples mensajes',
+      'Optimización del rendimiento en Edge Runtime',
+      'Gestión de errores y reconexión automática',
+      'Balance entre latencia y calidad de respuestas'
+    ],
+    learnings: [
+      'Integración de LLMs con APIs modernas',
+      'Arquitectura serverless con Edge Functions',
+      'Patrones de streaming en aplicaciones web',
+      'Optimización de prompts para LLMs',
+      'Despliegue y monitoreo de apps en Vercel Edge'
+    ],
+    featured: true,
+    status: 'live',
+    disclaimer: 'Proyecto personal sin afiliación oficial con Mistral AI.'
+  },
+  {
     slug: 'repai-trainer',
     title: 'Repai Trainer',
     description: 'Desarrollo de App móvil iOS (Fullstack)',
@@ -59,46 +99,6 @@ export const projects: Project[] = [
     featured: true,
     status: 'live',
     disclaimer: 'Proyecto propio actualmente en pausa de desarrollo.'
-  },
-  {
-    slug: 'mistral-chat',
-    title: 'Demo Chat IA',
-    description: 'Interfaz de chat con Mistral AI y streaming',
-    longDescription: 'Una aplicación web de chat moderna que demuestra las capacidades de Mistral AI. Construida con Next.js 14 y desplegada en Vercel Edge, implementa streaming de respuestas en tiempo real para una experiencia de usuario fluida y responsiva. El proyecto explora las mejores prácticas de integración de LLMs en aplicaciones web, incluyendo manejo de contexto, optimización de prompts, y gestión eficiente del estado de conversación.',
-    liveUrl: 'https://mistral-demo.deharo.dev',
-    repoUrl: 'https://github.com/deHaro5/Mistral-Chat',
-    logo: '/logomistral.png',
-    images: [
-      '/projects/chat-demo/p0.png',
-    ],
-    tags: ['Next.js', 'Mistral AI', 'TypeScript', 'Edge Functions', 'Streaming'],
-    features: [
-      'Streaming de respuestas en tiempo real',
-      'Interfaz de chat moderna y responsiva',
-      'Manejo de contexto de conversación',
-      'Edge Functions para latencia mínima',
-      'Optimización de prompts para mejores respuestas',
-      'Gestión de estado con React hooks',
-      'Diseño dark mode minimalista',
-      'Despliegue automático con Vercel'
-    ],
-    challenges: [
-      'Implementación de streaming SSE (Server-Sent Events)',
-      'Manejo correcto del contexto entre múltiples mensajes',
-      'Optimización del rendimiento en Edge Runtime',
-      'Gestión de errores y reconexión automática',
-      'Balance entre latencia y calidad de respuestas'
-    ],
-    learnings: [
-      'Integración de LLMs con APIs modernas',
-      'Arquitectura serverless con Edge Functions',
-      'Patrones de streaming en aplicaciones web',
-      'Optimización de prompts para LLMs',
-      'Despliegue y monitoreo de apps en Vercel Edge'
-    ],
-    featured: true,
-    status: 'live',
-    disclaimer: 'Proyecto personal sin afiliación oficial con Mistral AI.'
   },
   {
     slug: 'testum',

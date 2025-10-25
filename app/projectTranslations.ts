@@ -105,7 +105,7 @@ export const projectTranslations: Record<string, Record<Language, ProjectTransla
   },
   'mistral-chat': {
     es: {
-      title: 'Demo Chat IA',
+      title: 'Demo Mistral Chat',
       description: 'Interfaz de chat con Mistral AI y streaming',
       longDescription: 'Una aplicación web de chat moderna que demuestra las capacidades de Mistral AI. Construida con Next.js 14 y desplegada en Vercel Edge, implementa streaming de respuestas en tiempo real para una experiencia de usuario fluida y responsiva. El proyecto explora las mejores prácticas de integración de LLMs en aplicaciones web, incluyendo manejo de contexto, optimización de prompts, y gestión eficiente del estado de conversación.',
       features: [
@@ -134,7 +134,7 @@ export const projectTranslations: Record<string, Record<Language, ProjectTransla
       ]
     },
     en: {
-      title: 'AI Chat Demo',
+      title: 'Demo Mistral Chat',
       description: 'Chat interface with Mistral AI and streaming',
       longDescription: 'A modern chat web application that demonstrates Mistral AI capabilities. Built with Next.js 14 and deployed on Vercel Edge, it implements real-time response streaming for a fluid and responsive user experience. The project explores best practices for integrating LLMs into web applications, including context handling, prompt optimization, and efficient conversation state management.',
       features: [
@@ -163,7 +163,7 @@ export const projectTranslations: Record<string, Record<Language, ProjectTransla
       ]
     },
     fr: {
-      title: 'Démo Chat IA',
+      title: 'Demo Mistral Chat',
       description: 'Interface de chat avec Mistral AI et streaming',
       longDescription: 'Une application web de chat moderne qui démontre les capacités de Mistral AI. Construite avec Next.js 14 et déployée sur Vercel Edge, elle implémente le streaming de réponses en temps réel pour une expérience utilisateur fluide et réactive. Le projet explore les meilleures pratiques d\'intégration de LLMs dans les applications web, incluant la gestion du contexte, l\'optimisation des prompts, et la gestion efficace de l\'état de conversation.',
       features: [
