@@ -1,6 +1,10 @@
 'use client';
 
+import { useLanguage } from '@/app/contexts/LanguageContext';
+
 export default function DownloadPDFButton() {
+  const { t } = useLanguage();
+  
   const handlePrintPDF = () => {
     window.print();
   };
@@ -11,7 +15,7 @@ export default function DownloadPDFButton() {
       className="btn btn-primary no-print"
       type="button"
     >
-      Descargar PDF
+      {t('downloadPDF')}
     </button>
   );
 }

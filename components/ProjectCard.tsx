@@ -2,16 +2,33 @@
 
 import type { Project } from '@/app/data/projects';
 import Image from 'next/image';
-import Link from 'next/link';
+import { useRouter } from 'next/navigation';
+import { useProjectTranslation } from '@/app/hooks/useProjectTranslation';
+import { useLanguage } from '@/app/contexts/LanguageContext';
 
 export default function ProjectCard({ project }: { project: Project }) {
+  const router = useRouter();
+  const translated = useProjectTranslation(project);
+  const { t } = useLanguage();
+  
   // Si es el portfolio, redirigir al GitHub directamente
   const isPortfolio = project.slug === 'portfolio';
   const href = isPortfolio && project.repoUrl ? project.repoUrl : `/projects/${project.slug}`;
   const isExternal = isPortfolio && project.repoUrl;
   
-  const content = (
-    <article className={`card group cursor-pointer ${isPortfolio ? '' : 'h-full'} flex flex-col`}>
+  const handleClick = () => {
+    if (isExternal) {
+      window.open(href, '_blank', 'noopener,noreferrer');
+    } else {
+      router.push(href);
+    }
+  };
+  
+  return (
+    <div 
+      className={`card group cursor-pointer ${isPortfolio ? '' : 'h-full'} flex flex-col`}
+      onClick={handleClick}
+    >
       {/* Logo and Header */}
       <div className="flex items-start gap-4 mb-4">
         {project.logo && (
@@ -28,7 +45,7 @@ export default function ProjectCard({ project }: { project: Project }) {
         <div className="flex-1 min-w-0">
           <div className="flex items-start justify-between gap-2">
             <h2 className="text-xl font-semibold text-zinc-100 group-hover:text-white transition-colors">
-              {project.title}
+              {translated.title}
             </h2>
             {project.status && (
               <span 
@@ -40,7 +57,7 @@ export default function ProjectCard({ project }: { project: Project }) {
                     : 'bg-zinc-800 text-zinc-400 border border-zinc-700'
                 }`}
               >
-                {project.status === 'live' ? 'Live' : project.status === 'development' ? 'Dev' : 'Archived'}
+                {project.status === 'live' ? t('live') : project.status === 'development' ? t('dev') : t('archived')}
               </span>
             )}
           </div>
@@ -49,7 +66,7 @@ export default function ProjectCard({ project }: { project: Project }) {
 
       {/* Description */}
       <p className={`text-zinc-400 text-sm mb-4 leading-relaxed ${isPortfolio ? '' : 'flex-grow'}`}>
-        {project.longDescription || project.description}
+        {translated.longDescription}
       </p>
 
       {/* Tags */}
@@ -73,7 +90,7 @@ export default function ProjectCard({ project }: { project: Project }) {
             className="text-zinc-400 hover:text-zinc-100 transition-colors underline"
             onClick={(e) => e.stopPropagation()}
           >
-            {project.liveUrl.includes('apps.apple.com') ? 'Ver en App Store' : 'Ver web'} ↗
+            {project.liveUrl.includes('apps.apple.com') ? t('viewOnAppStore') : t('viewWeb')} ↗
           </a>
         )}
         {project.repoUrl && (
@@ -84,15 +101,15 @@ export default function ProjectCard({ project }: { project: Project }) {
             className="text-zinc-400 hover:text-zinc-100 transition-colors underline"
             onClick={(e) => e.stopPropagation()}
           >
-            Código ↗
+            {t('viewCode')} ↗
           </a>
         )}
       </div>
 
       {/* Disclaimer */}
-      {project.disclaimer && (
+      {translated.disclaimer && (
         <p className="mt-4 text-xs text-zinc-600 italic border-t border-zinc-900 pt-3">
-          {project.disclaimer}
+          {translated.disclaimer}
         </p>
       )}
       
@@ -100,25 +117,11 @@ export default function ProjectCard({ project }: { project: Project }) {
       {!isPortfolio && (
         <div className="mt-4 pt-4 border-t border-zinc-900 opacity-0 group-hover:opacity-100 transition-opacity">
           <span className="text-sm text-zinc-500">
-            Ver más detalles →
+            {t('viewAllProjects')} →
           </span>
         </div>
       )}
-    </article>
-  );
-
-  if (isExternal) {
-    return (
-      <a href={href} target="_blank" rel="noopener noreferrer" className="h-full">
-        {content}
-      </a>
-    );
-  }
-
-  return (
-    <Link href={href} className="h-full">
-      {content}
-    </Link>
+    </div>
   );
 }
 

@@ -1,40 +1,25 @@
+'use client';
+
 import { notFound } from 'next/navigation';
 import Image from 'next/image';
 import { projects } from '@/app/data/projects';
 import BackButton from '@/components/BackButton';
-import type { Metadata } from 'next';
+import { useProjectTranslation } from '@/app/hooks/useProjectTranslation';
+import { useLanguage } from '@/app/contexts/LanguageContext';
 
 type Props = {
   params: { slug: string };
 };
 
-export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const project = projects.find((p) => p.slug === params.slug);
-  
-  if (!project) {
-    return {
-      title: 'Proyecto no encontrado',
-    };
-  }
-
-  return {
-    title: `${project.title} — Francisco De Haro`,
-    description: project.description,
-  };
-}
-
-export async function generateStaticParams() {
-  return projects.map((project) => ({
-    slug: project.slug,
-  }));
-}
-
 export default function ProjectPage({ params }: Props) {
+  const { t } = useLanguage();
   const project = projects.find((p) => p.slug === params.slug);
 
   if (!project) {
     notFound();
   }
+  
+  const translated = useProjectTranslation(project);
 
   return (
     <div className="container mx-auto px-6 py-20">
@@ -75,7 +60,7 @@ export default function ProjectPage({ params }: Props) {
             <div className="flex-1">
               <div className="flex items-center gap-3 mb-3">
                 <h1 className="text-4xl md:text-5xl font-bold text-white">
-                  {project.title}
+                  {translated.title}
                 </h1>
                 {project.status && (
                   <span 
@@ -87,12 +72,12 @@ export default function ProjectPage({ params }: Props) {
                         : 'bg-zinc-800 text-zinc-400 border border-zinc-700'
                     }`}
                   >
-                    {project.status === 'live' ? 'Live' : project.status === 'development' ? 'En Desarrollo' : 'Archivado'}
+                    {project.status === 'live' ? t('live') : project.status === 'development' ? t('development') : t('archived')}
                   </span>
                 )}
               </div>
               <p className="text-xl text-zinc-400">
-                {project.description}
+                {translated.description}
               </p>
             </div>
           </div>
@@ -109,7 +94,7 @@ export default function ProjectPage({ params }: Props) {
                 <svg className="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
                 </svg>
-                {project.liveUrl.includes('apps.apple.com') ? 'Ver en App Store' : 'Ver Web'}
+                {project.liveUrl.includes('apps.apple.com') ? t('viewOnAppStore') : t('viewWeb')}
               </a>
             )}
             {project.repoUrl && (
@@ -122,7 +107,7 @@ export default function ProjectPage({ params }: Props) {
                 <svg className="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 24 24">
                   <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
                 </svg>
-                Ver Código
+                {t('viewCode')}
               </a>
             )}
           </div>
@@ -132,15 +117,15 @@ export default function ProjectPage({ params }: Props) {
         <div className="space-y-12">
           {/* Description */}
           <section>
-            <h2 className="text-2xl font-bold text-white mb-4">Sobre el proyecto</h2>
+            <h2 className="text-2xl font-bold text-white mb-4">{t('aboutProject')}</h2>
             <p className="text-zinc-400 leading-relaxed text-lg">
-              {project.longDescription || project.description}
+              {translated.longDescription}
             </p>
           </section>
 
           {/* Technologies */}
           <section>
-            <h2 className="text-2xl font-bold text-white mb-4">Tecnologías</h2>
+            <h2 className="text-2xl font-bold text-white mb-4">{t('technologies')}</h2>
             <div className="flex flex-wrap gap-2">
               {project.tags.map((tag) => (
                 <span key={tag} className="badge text-sm">
@@ -151,11 +136,11 @@ export default function ProjectPage({ params }: Props) {
           </section>
 
           {/* Features */}
-          {project.features && project.features.length > 0 && (
+          {translated.features && translated.features.length > 0 && (
             <section>
-              <h2 className="text-2xl font-bold text-white mb-4">Características</h2>
+              <h2 className="text-2xl font-bold text-white mb-4">{t('features')}</h2>
               <ul className="space-y-2">
-                {project.features.map((feature, index) => (
+                {translated.features.map((feature, index) => (
                   <li key={index} className="flex items-start gap-3 text-zinc-400">
                     <svg className="w-5 h-5 text-green-400 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
@@ -168,11 +153,11 @@ export default function ProjectPage({ params }: Props) {
           )}
 
           {/* Challenges */}
-          {project.challenges && project.challenges.length > 0 && (
+          {translated.challenges && translated.challenges.length > 0 && (
             <section>
-              <h2 className="text-2xl font-bold text-white mb-4">Desafíos técnicos</h2>
+              <h2 className="text-2xl font-bold text-white mb-4">{t('technicalChallenges')}</h2>
               <ul className="space-y-2">
-                {project.challenges.map((challenge, index) => (
+                {translated.challenges.map((challenge, index) => (
                   <li key={index} className="flex items-start gap-3 text-zinc-400">
                     <svg className="w-5 h-5 text-blue-400 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
@@ -185,11 +170,11 @@ export default function ProjectPage({ params }: Props) {
           )}
 
           {/* Learnings */}
-          {project.learnings && project.learnings.length > 0 && (
+          {translated.learnings && translated.learnings.length > 0 && (
             <section>
-              <h2 className="text-2xl font-bold text-white mb-4">Aprendizajes</h2>
+              <h2 className="text-2xl font-bold text-white mb-4">{t('learnings')}</h2>
               <ul className="space-y-2">
-                {project.learnings.map((learning, index) => (
+                {translated.learnings.map((learning, index) => (
                   <li key={index} className="flex items-start gap-3 text-zinc-400">
                     <svg className="w-5 h-5 text-purple-400 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
@@ -202,9 +187,9 @@ export default function ProjectPage({ params }: Props) {
           )}
 
           {/* Screenshots Section */}
-          {project.images && project.images.length > 0 ? (
+          {project.images && project.images.length > 0 && (
             <section>
-              <h2 className="text-2xl font-bold text-white mb-6">Capturas de pantalla</h2>
+              <h2 className="text-2xl font-bold text-white mb-6">{t('screenshots')}</h2>
               {project.slug === 'testum' ? (
                 // Layout 2-1 triangular especial para Testum
                 <div className="grid gap-6">
@@ -222,11 +207,11 @@ export default function ProjectPage({ params }: Props) {
                           className="w-full h-auto object-contain rounded-2xl border border-zinc-800 hover:border-zinc-700 transition-all duration-300 hover:scale-[1.02]"
                         />
                         {/* Overlay on hover */}
-                        <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-center pb-4 rounded-2xl">
-                          <span className="text-white text-sm font-medium">
-                            Vista {index + 1}
-                          </span>
-                        </div>
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-center pb-4 rounded-2xl">
+                        <span className="text-white text-sm font-medium">
+                          {t('view')} {index + 1}
+                        </span>
+                      </div>
                       </div>
                     ))}
                   </div>
@@ -247,6 +232,72 @@ export default function ProjectPage({ params }: Props) {
                       </div>
                     </div>
                   )}
+                </div>
+              ) : project.slug === 'llama-lyrics-finetuning' ? (
+                // Layout especial para Llama Lyrics: primera imagen horizontal prioritaria
+                <div className="space-y-6">
+                  {/* Primera imagen - horizontal, grande y prioritaria */}
+                  {project.images[0] && (
+                    <div className="group relative flex items-center justify-center">
+                      <Image
+                        src={project.images[0]}
+                        alt={`${project.title} screenshot 1`}
+                        width={1600}
+                        height={900}
+                        className="w-full h-auto object-contain rounded-2xl border border-zinc-800 hover:border-zinc-700 transition-all duration-300 hover:scale-[1.02]"
+                        priority
+                      />
+                      {/* Overlay on hover */}
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-center pb-4 rounded-2xl">
+                        <span className="text-white text-sm font-medium">
+                          {t('training')}
+                        </span>
+                      </div>
+                    </div>
+                  )}
+                  {/* Segunda imagen - vertical, más pequeña */}
+                  {project.images[1] && (
+                    <div className="group relative flex items-center justify-center max-w-3xl mx-auto">
+                      <Image
+                        src={project.images[1]}
+                        alt={`${project.title} screenshot 2`}
+                        width={1200}
+                        height={1600}
+                        className="w-auto h-auto max-h-[700px] object-contain rounded-2xl border border-zinc-800 hover:border-zinc-700 transition-all duration-300 hover:scale-[1.02]"
+                      />
+                      {/* Overlay on hover */}
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-center pb-4 rounded-2xl">
+                        <span className="text-white text-sm font-medium">
+                          {t('results')}
+                        </span>
+                      </div>
+                    </div>
+                  )}
+                </div>
+              ) : project.slug === 'pre-paper' ? (
+                // Layout especial para PRE-Paper: imágenes grandes verticales
+                <div className="space-y-8">
+                  {project.images.map((image, index) => (
+                    <div 
+                      key={index} 
+                      className="group relative flex items-center justify-center"
+                    >
+                      <Image
+                        src={image}
+                        alt={`${project.title} - Graph ${index + 1}`}
+                        width={1600}
+                        height={1000}
+                        className="w-full h-auto object-contain rounded-2xl border border-zinc-800 hover:border-zinc-700 transition-all duration-300 hover:scale-[1.02]"
+                        priority={index === 0}
+                      />
+                      {/* Overlay on hover */}
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-center pb-4 rounded-2xl">
+                        <span className="text-white text-sm font-medium">
+                          Graph {index + 1}
+                        </span>
+                      </div>
+                    </div>
+                  ))}
                 </div>
               ) : (
                 // Layout por defecto para otros proyectos
@@ -274,28 +325,13 @@ export default function ProjectPage({ params }: Props) {
                 </div>
               )}
             </section>
-          ) : (
-            <section>
-              <h2 className="text-2xl font-bold text-white mb-4">Capturas</h2>
-              <div className="grid md:grid-cols-2 gap-4">
-                <div className="aspect-video bg-zinc-900 border border-zinc-800 rounded-lg flex items-center justify-center">
-                  <p className="text-zinc-600 text-sm">Imagen próximamente</p>
-                </div>
-                <div className="aspect-video bg-zinc-900 border border-zinc-800 rounded-lg flex items-center justify-center">
-                  <p className="text-zinc-600 text-sm">Imagen próximamente</p>
-                </div>
-              </div>
-              <p className="text-zinc-500 text-sm mt-4">
-                Añade imágenes en <code className="text-zinc-400 bg-zinc-900 px-2 py-1 rounded">public/projects/{project.slug}/</code>
-              </p>
-            </section>
           )}
 
           {/* Disclaimer */}
-          {project.disclaimer && (
+          {translated.disclaimer && (
             <section className="border-t border-zinc-900 pt-8">
               <p className="text-sm text-zinc-600 italic">
-                {project.disclaimer}
+                {translated.disclaimer}
               </p>
             </section>
           )}

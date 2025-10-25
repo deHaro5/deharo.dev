@@ -2,11 +2,13 @@
 
 import { useRouter, usePathname } from 'next/navigation';
 import { useEffect, useState } from 'react';
+import { useLanguage } from '@/app/contexts/LanguageContext';
 
 export default function BackButton() {
   const router = useRouter();
   const pathname = usePathname();
-  const [backText, setBackText] = useState('Volver');
+  const { t } = useLanguage();
+  const [backTextKey, setBackTextKey] = useState<'backToHome' | 'backToProjects'>('backToHome');
   const [backHref, setBackHref] = useState('/');
 
   useEffect(() => {
@@ -17,24 +19,24 @@ export default function BackButton() {
     if (pathname.startsWith('/projects/') && pathname !== '/projects') {
       // Estamos en un proyecto individual
       if (previousPath === '/') {
-        setBackText('Volver al Inicio');
+        setBackTextKey('backToHome');
         setBackHref('/');
       } else if (previousPath === '/projects') {
-        setBackText('Volver a Proyectos');
+        setBackTextKey('backToProjects');
         setBackHref('/projects');
       } else {
         // Por defecto, volver a Proyectos
-        setBackText('Volver a Proyectos');
+        setBackTextKey('backToProjects');
         setBackHref('/projects');
       }
     } else if (pathname === '/projects') {
-      setBackText('Volver al Inicio');
+      setBackTextKey('backToHome');
       setBackHref('/');
     } else if (pathname === '/cv') {
-      setBackText('Volver al Inicio');
+      setBackTextKey('backToHome');
       setBackHref('/');
     } else {
-      setBackText('Volver');
+      setBackTextKey('backToHome');
       setBackHref('/');
     }
 
@@ -62,7 +64,7 @@ export default function BackButton() {
       >
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 19l-7-7m0 0l7-7m-7 7h18" />
       </svg>
-      <span className="text-sm">{backText}</span>
+      <span className="text-sm">{t(backTextKey)}</span>
     </button>
   );
 }

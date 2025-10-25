@@ -4,8 +4,10 @@ import Link from 'next/link';
 import ProjectCard from '@/components/ProjectCard';
 import { projects } from '@/app/data/projects';
 import { useEffect, useState } from 'react';
+import { useLanguage } from '@/app/contexts/LanguageContext';
 
 export default function HomePage() {
+  const { t } = useLanguage();
   const [activeSection, setActiveSection] = useState('hero');
 
   useEffect(() => {
@@ -46,7 +48,7 @@ export default function HomePage() {
           <button
             onClick={() => scrollToSection('hero')}
             className="flex items-center gap-3 group"
-            aria-label="Ir a inicio"
+            aria-label={t('home')}
           >
             <div className={`w-2 h-2 rounded-full transition-all ${
               activeSection === 'hero' ? 'bg-white scale-150' : 'bg-zinc-700'
@@ -54,14 +56,14 @@ export default function HomePage() {
             <span className={`text-xs whitespace-nowrap transition-colors ${
               activeSection === 'hero' ? 'text-white' : 'text-zinc-500'
             }`}>
-              Inicio
+              {t('home')}
             </span>
           </button>
           
           <button
             onClick={() => scrollToSection('proyectos')}
             className="flex items-center gap-3 group"
-            aria-label="Ir a proyectos"
+            aria-label={t('projects')}
           >
             <div className={`w-2 h-2 rounded-full transition-all ${
               activeSection === 'proyectos' ? 'bg-white scale-150' : 'bg-zinc-700'
@@ -69,14 +71,14 @@ export default function HomePage() {
             <span className={`text-xs whitespace-nowrap transition-colors ${
               activeSection === 'proyectos' ? 'text-white' : 'text-zinc-500'
             }`}>
-              Proyectos
+              {t('projects')}
             </span>
           </button>
           
           <button
             onClick={() => scrollToSection('cv')}
             className="flex items-center gap-3 group"
-            aria-label="Ir a CV"
+            aria-label={t('cv')}
           >
             <div className={`w-2 h-2 rounded-full transition-all ${
               activeSection === 'cv' ? 'bg-white scale-150' : 'bg-zinc-700'
@@ -84,7 +86,7 @@ export default function HomePage() {
             <span className={`text-xs whitespace-nowrap transition-colors ${
               activeSection === 'cv' ? 'text-white' : 'text-zinc-500'
             }`}>
-              CV
+              {t('cv')}
             </span>
           </button>
         </div>
@@ -95,7 +97,7 @@ export default function HomePage() {
         <section id="hero" className="py-32 md:py-40">
           <div className="max-w-6xl mx-auto">
             <h1 className="text-5xl md:text-6xl font-bold mb-6 text-white">
-              Francisco De Haro
+              {t('homeTitle')}
             </h1>
             
             {/* Content with badges on the right */}
@@ -103,24 +105,16 @@ export default function HomePage() {
               {/* Left: Text content */}
               <div className="flex-1">
                 <p className="text-lg md:text-xl text-zinc-400 mb-8 leading-relaxed">
-                  Desarrollador Full Stack especializado en Next.js e integración de IA.
+                  {t('homeSubtitle')}
                 </p>
                 <p className="text-base text-zinc-500 mb-12 leading-relaxed">
-                  Fullstack la app{' '}
-                  <Link 
-                    href="/projects/repai-trainer"
-                    className="font-bold italic text-zinc-300 hover:text-white underline transition-colors"
-                  >
-                    Repai Trainer ↗
-                  </Link>
-                  {' '}— iOS (Expo/React Native) con suscripciones, backend Supabase e integración de APIs IA. 
-                  Experiencia en ciclos rápidos, entregas continuas y productos end-to-end. Solo dev, muchas ideas y ganas de aplicar IA a todo.
+                  {t('homeDescription')}
                 </p>
 
                 {/* CTAs */}
                 <div className="flex items-center gap-4">
                   <Link href="/projects" className="btn btn-primary">
-                    Ver Proyectos
+                    {t('viewAllProjects')}
                   </Link>
                   <Link href="/cv" className="btn btn-secondary">
                     CV
@@ -151,17 +145,17 @@ export default function HomePage() {
           <div className="flex items-start justify-between mb-12">
             <div>
               <h2 className="text-4xl md:text-5xl font-bold mb-4 text-white">
-                Proyectos
+                {t('featuredProjects')}
               </h2>
               <p className="text-lg text-zinc-400">
-                Trabajos recientes y experimentos con tecnologías modernas.
+                {t('projectsDescription')}
               </p>
             </div>
             <Link 
               href="/projects" 
               className="text-sm text-zinc-500 hover:text-zinc-300 transition-colors underline whitespace-nowrap mt-3"
             >
-              Ver todos los proyectos →
+              {t('viewAllProjects')} →
             </Link>
           </div>
 
@@ -199,33 +193,33 @@ export default function HomePage() {
           <div className="flex items-start justify-between mb-16">
             <div>
               <h2 className="text-4xl md:text-5xl font-bold mb-4 text-white">
-                CV
+                {t('homeCVTitle')}
               </h2>
               <p className="text-lg text-zinc-400">
-                Experiencia, stack tecnológico y formación.
+                {t('homeCVDescription')}
               </p>
             </div>
             <Link 
               href="/cv" 
               className="text-sm text-zinc-500 hover:text-zinc-300 transition-colors underline whitespace-nowrap mt-3"
             >
-              Ver CV completo →
+              {t('viewFullCV')}
             </Link>
           </div>
 
           {/* Personal Info */}
           <section className="mb-12">
             <h3 className="text-xl font-semibold mb-6 text-white">
-              Contacto
+              {t('cvContact')}
             </h3>
             <div className="grid md:grid-cols-2 gap-6 text-sm">
               <div>
-                <p className="text-zinc-500 mb-1">Email</p>
+                <p className="text-zinc-500 mb-1">{t('cvEmail')}</p>
                 <p className="text-zinc-300">frandeharo55@gmail.com</p>
               </div>
               <div>
-                <p className="text-zinc-500 mb-1">Ubicación</p>
-                <p className="text-zinc-300">España</p>
+                <p className="text-zinc-500 mb-1">{t('cvLocation')}</p>
+                <p className="text-zinc-300">{t('cvLocationValue')}</p>
               </div>
               <div>
                 <p className="text-zinc-500 mb-1">GitHub</p>
@@ -234,7 +228,7 @@ export default function HomePage() {
                 </a>
               </div>
               <div>
-                <p className="text-zinc-500 mb-1">Portfolio</p>
+                <p className="text-zinc-500 mb-1">{t('cvPortfolio')}</p>
                 <a href="https://deharo.dev" target="_blank" rel="noopener noreferrer" className="text-zinc-300 hover:text-zinc-100 transition-colors underline">
                   deharo.dev
                 </a>
@@ -245,41 +239,36 @@ export default function HomePage() {
           {/* Summary */}
           <section className="mb-12">
             <h3 className="text-xl font-semibold mb-4 text-white">
-              Resumen
+              {t('homeCVSummaryTitle')}
             </h3>
-            <p className="text-zinc-400 leading-relaxed text-sm mb-3">
-              Desarrollador full-stack con foco en <strong className="text-zinc-300">Next.js</strong> e <strong className="text-zinc-300">IA</strong>. 
-              He publicado <strong className="text-zinc-300">Repai Trainer</strong> (Expo/React Native) con suscripciones y backend en Supabase, 
-              pagos con RevenueCat, integración de APIs IA (GPT-5) y gestión en App Store Connect.
-            </p>
-            <p className="text-zinc-400 leading-relaxed text-sm">
-              Me muevo cómodo en ciclos rápidos y entregas continuas. Alta disponibilidad y experiencia entregando productos end-to-end.
-            </p>
+             <p className="text-zinc-400 leading-relaxed text-sm">
+               {t('homeCVSummaryText1')}
+             </p>
           </section>
 
           {/* Key Skills Summary */}
           <section className="mb-12">
             <h3 className="text-xl font-semibold mb-4 text-white">
-              Qué aporto
+              {t('cvWhatIBring')}
             </h3>
             <ul className="list-disc list-inside text-zinc-400 space-y-2 text-sm">
-              <li>Diseño y desarrollo <strong className="text-zinc-300">frontend</strong> (Next.js/React) y <strong className="text-zinc-300">móvil</strong> (Expo)</li>
-              <li><strong className="text-zinc-300">APIs</strong> y <strong className="text-zinc-300">backend</strong> en Node/TypeScript (Supabase, PostgreSQL, Neon)</li>
-              <li><strong className="text-zinc-300">Autenticación y pagos</strong> (Clerk, Stripe, RevenueCat, suscripciones)</li>
-              <li>Integración de <strong className="text-zinc-300">LLMs</strong> (Mistral, OpenAI, etc.), orquestación de prompts y despliegues</li>
-              <li><strong className="text-zinc-300">DevOps</strong> práctico: Vercel, Cloudflare, GitHub, CI/CD</li>
+              <li>{t('cvSkill1')}</li>
+              <li>{t('cvSkill2')}</li>
+              <li>{t('cvSkill3')}</li>
+              <li>{t('cvSkill4')}</li>
+              <li>{t('cvSkill6')}</li>
             </ul>
           </section>
 
           {/* Technical Skills */}
           <section className="mb-12">
             <h3 className="text-xl font-semibold mb-6 text-white">
-              Stack Tecnológico
+              {t('cvTechStack')}
             </h3>
             
             <div className="space-y-4">
               <div>
-                <h4 className="text-sm font-medium text-zinc-300 mb-2">Frontend & Mobile</h4>
+                <h4 className="text-sm font-medium text-zinc-300 mb-2">{t('cvFrontendMobile')}</h4>
                 <div className="flex flex-wrap gap-2">
                   <span className="badge">Next.js</span>
                   <span className="badge">React</span>
@@ -292,7 +281,7 @@ export default function HomePage() {
               </div>
 
               <div>
-                <h4 className="text-sm font-medium text-zinc-300 mb-2">Backend & Database</h4>
+                <h4 className="text-sm font-medium text-zinc-300 mb-2">{t('cvBackendDatabase')}</h4>
                 <div className="flex flex-wrap gap-2">
                   <span className="badge">Node.js</span>
                   <span className="badge">TypeScript</span>
@@ -303,7 +292,7 @@ export default function HomePage() {
               </div>
 
               <div>
-                <h4 className="text-sm font-medium text-zinc-300 mb-2">Auth & Payments</h4>
+                <h4 className="text-sm font-medium text-zinc-300 mb-2">{t('cvAuthPayments')}</h4>
                 <div className="flex flex-wrap gap-2">
                   <span className="badge">Clerk</span>
                   <span className="badge">Stripe</span>
@@ -313,7 +302,7 @@ export default function HomePage() {
               </div>
 
               <div>
-                <h4 className="text-sm font-medium text-zinc-300 mb-2">IA & APIs</h4>
+                <h4 className="text-sm font-medium text-zinc-300 mb-2">{t('cvAIML')}</h4>
                 <div className="flex flex-wrap gap-2">
                   <span className="badge">LLMs</span>
                   <span className="badge">Mistral AI</span>
@@ -324,7 +313,7 @@ export default function HomePage() {
               </div>
 
               <div>
-                <h4 className="text-sm font-medium text-zinc-300 mb-2">DevOps & Tools</h4>
+                <h4 className="text-sm font-medium text-zinc-300 mb-2">{t('cvDevOpsTools')}</h4>
                 <div className="flex flex-wrap gap-2">
                   <span className="badge">Vercel</span>
                   <span className="badge">Cloudflare</span>
@@ -339,20 +328,20 @@ export default function HomePage() {
           {/* Education */}
           <section className="mb-12">
             <h3 className="text-xl font-semibold mb-6 text-white">
-              Educación
+              {t('cvEducation')}
             </h3>
             
             <div className="border-l-2 border-zinc-800 pl-4">
               <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-2">
                 <h4 className="text-lg font-medium text-zinc-100">
-                  Grado en Administración y Dirección de Empresas (ADE)
+                  {t('cvEducationDegree')}
                 </h4>
                 <span className="text-xs text-zinc-500">
-                  Cursando 3º
+                  {t('cvEducationYear')}
                 </span>
               </div>
               <p className="text-zinc-400 text-sm">
-                Aprendizaje rápido y autonomía técnica
+                {t('cvEducationDescription')}
               </p>
             </div>
           </section>
@@ -360,38 +349,59 @@ export default function HomePage() {
           {/* Languages */}
           <section className="mb-12">
             <h3 className="text-xl font-semibold mb-4 text-white">
-              Idiomas
+              {t('cvLanguages')}
             </h3>
             <div className="grid md:grid-cols-2 gap-4 text-sm">
               <div>
-                <p className="text-zinc-300">Español</p>
-                <p className="text-zinc-500">Nativo</p>
+                <p className="text-zinc-300">{t('cvLanguageSpanish')}</p>
+                <p className="text-zinc-500">{t('cvLanguageLevelNative')}</p>
               </div>
               <div>
-                <p className="text-zinc-300">Inglés</p>
-                <p className="text-zinc-500">Avanzado</p>
+                <p className="text-zinc-300">{t('cvLanguageEnglish')}</p>
+                <p className="text-zinc-500">{t('cvLanguageLevelAdvanced')}</p>
               </div>
               <div>
-                <p className="text-zinc-300">Francés</p>
-                <p className="text-zinc-500">Básico</p>
+                <p className="text-zinc-300">{t('cvLanguageFrench')}</p>
+                <p className="text-zinc-500">{t('cvLanguageLevelBasic')}</p>
               </div>
             </div>
           </section>
         </div>
       </section>
 
+      {/* About me Section */}
+      <section className="pb-32">
+        <div className="max-w-4xl mx-auto">
+          <div className="flex items-center gap-3 mb-8">
+            <div className="w-12 h-px bg-gradient-to-r from-transparent via-zinc-700 to-transparent"></div>
+            <h2 className="text-3xl font-bold text-white">{t('aboutMeTitle')}</h2>
+            <div className="w-12 h-px bg-gradient-to-r from-transparent via-zinc-700 to-transparent"></div>
+          </div>
+          <div className="bg-zinc-900/30 border border-zinc-800 rounded-2xl p-8">
+            <p className="text-zinc-300 text-lg leading-relaxed">
+              {t('aboutMeText')}
+            </p>
+          </div>
+        </div>
+      </section>
+
         {/* Contact - Discrete */}
         <section className="pb-20">
           <div className="max-w-6xl mx-auto">
-            <p className="text-zinc-500 text-sm">
-              Disponible de inmediato para colaboraciones →{' '}
-              <a 
-                href="mailto:frandeharo55@gmail.com" 
-                className="text-zinc-400 hover:text-zinc-100 transition-colors underline"
-              >
-                frandeharo55@gmail.com
-              </a>
-            </p>
+            <div className="space-y-4">
+              <p className="text-zinc-500 text-sm">
+                <span className="text-zinc-400 font-medium">{t('availabilityTitle')}:</span> {t('availabilityText')}
+              </p>
+              <p className="text-zinc-500 text-sm">
+                {t('availableForCollaborations')}{' '}
+                <a 
+                  href="mailto:frandeharo55@gmail.com" 
+                  className="text-zinc-400 hover:text-zinc-100 transition-colors underline"
+                >
+                  frandeharo55@gmail.com
+                </a>
+              </p>
+            </div>
           </div>
         </section>
       </div>
