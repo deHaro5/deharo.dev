@@ -232,7 +232,7 @@ export const projects: Project[] = [
   },
   {
     slug: 'pre-paper',
-    title: '1¢, 1min, 100%: AI en Exámenes Universitarios',
+    title: '1¢, 1min, 100%: AI en Exámenes Universitarios (En desarrollo)',
     description: 'Investigación opensource sobre modelos de IA aplicados a exámenes de ADE',
     longDescription: 'Paper de investigación de contribución opensource sobre la aplicación de modelos de inteligencia artificial a los exámenes de Economía y Dirección de Empresas de la Universidad de Murcia, España. Los resultados y metodología son públicos. Los resultados demuestran que modelos avanzados de razonamiento como GPT-5-mini (high reasoning) y grok-4-fast-reasoning alcanzan una precisión del 100% en menos de 1 minuto por examen, con un coste aproximado de 1 céntimo por evaluación. Este estudio incluye el desarrollo de un sistema OCR implementado con la API de Mathpix y programa de conversión a LATEX/Markdown para automatizar el procesamiento de exámenes. Base de datos SQLite con Prisma para gestión eficiente de datos.',
     logo: '/projects/pre-paper/arxiv-logo.png',

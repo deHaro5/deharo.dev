@@ -500,7 +500,7 @@ export const projectTranslations: Record<string, Record<Language, ProjectTransla
   },
   'pre-paper': {
     es: {
-      title: '1¢, 1min, 100%: AI en Exámenes Universitarios',
+      title: '1¢, 1min, 100%: AI en Exámenes Universitarios (En desarrollo)',
       description: 'Investigación opensource sobre modelos de IA aplicados a exámenes de ADE',
       longDescription: 'Paper de investigación de contribución opensource sobre la aplicación de modelos de inteligencia artificial a los exámenes de Economía y Dirección de Empresas de la Universidad de Murcia, España. Los resultados y metodología son públicos. Los resultados demuestran que modelos avanzados de razonamiento como GPT-5-mini (high reasoning) y grok-4-fast-reasoning alcanzan una precisión del 100% en menos de 1 minuto por examen, con un coste aproximado de 1 céntimo por evaluación. Este estudio incluye el desarrollo de un sistema OCR implementado con la API de Mathpix y programa de conversión a LATEX/Markdown para automatizar el procesamiento de exámenes. Base de datos SQLite con Prisma para gestión eficiente de datos.',
       features: [
@@ -540,7 +540,7 @@ export const projectTranslations: Record<string, Record<Language, ProjectTransla
       disclaimer: 'Investigación académica en desarrollo. Los resultados son preliminares y están sujetos a revisión.'
     },
     en: {
-      title: '1¢, 1min, 100%: AI in University Exams',
+      title: '1¢, 1min, 100%: AI in University Exams (In Development)',
       description: 'Opensource research on AI models applied to Business Administration exams',
       longDescription: 'Opensource research paper on the application of artificial intelligence models to Business Administration and Management exams at the University of Murcia, Spain. Results and methodology are publicly available. Results demonstrate that advanced reasoning models like GPT-5-mini (high reasoning) and grok-4-fast-reasoning achieve 100% accuracy in less than 1 minute per exam, with an approximate cost of 1 cent per evaluation. This study includes the development of an OCR system implemented with Mathpix API and LATEX/Markdown conversion program to automate exam processing. SQLite database with Prisma for efficient data management.',
       features: [
@@ -580,7 +580,7 @@ export const projectTranslations: Record<string, Record<Language, ProjectTransla
       disclaimer: 'Academic research in development. Results are preliminary and subject to review.'
     },
     fr: {
-      title: '1¢, 1min, 100%: IA dans les Examens Universitaires',
+      title: '1¢, 1min, 100%: IA dans les Examens Universitaires (En développement)',
       description: 'Recherche opensource sur modèles IA appliqués aux examens d\'ADE',
       longDescription: 'Article de recherche opensource sur l\'application de modèles d\'intelligence artificielle aux examens d\'Économie et Direction d\'Entreprises de l\'Université de Murcia, Espagne. Les résultats et la méthodologie sont publics. Les résultats démontrent que les modèles de raisonnement avancés comme GPT-5-mini (high reasoning) et grok-4-fast-reasoning atteignent une précision de 100% en moins de 1 minute par examen, avec un coût approximatif de 1 centime par évaluation. Cette étude inclut le développement d\'un système OCR implémenté avec l\'API Mathpix et d\'un programme de conversion LATEX/Markdown pour automatiser le traitement des examens. Base de données SQLite avec Prisma pour une gestion efficace des données.',
       features: [
