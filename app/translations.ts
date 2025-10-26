@@ -19,8 +19,8 @@ export const translations = {
     
     // Home page
     homeTitle: 'Francisco De Haro',
-    homeSubtitle: 'Desarrollador Full Stack especializado en Next.js e Inteligencia Artificial.',
-    homeDescription: 'Construyo productos digitales con foco en experiencia de usuario y arquitecturas escalables. Fullstack la app Repai Trainer — iOS (Expo/React Native) con suscripciones, backend Supabase e integración de APIs IA. Experiencia en ciclos rápidos, entregas continuas y productos end-to-end. Solo dev, muchas ideas y ganas de aplicar IA a todo.',
+    homeSubtitle: 'Especialista en IA aplicada y evaluación de LLMs.',
+    homeDescription: 'Integro LLMs en casos reales (educación, economía, producto), convierto ideas en demos en días y publico resultados comparables (coste/latencia/precisión). Busco dar a conocer la IA y anticipar sus efectos con evidencia y sentido práctico. Trabajo como desarrollador independiente end-to-end; ciclos cortos, entrega continua y foco en resultados. 430+ contribuciones en GitHub en los últimos 12 meses (mayoría privadas).',
     featuredProjects: 'Proyectos destacados',
     viewAllProjects: 'Ver todos los proyectos',
     contact: 'Contacto',
@@ -125,8 +125,8 @@ export const translations = {
     
     // Home page
     homeTitle: 'Francisco De Haro',
-    homeSubtitle: 'Full Stack Developer specialized in Next.js and Artificial Intelligence.',
-    homeDescription: 'I build digital products with focus on user experience and scalable architectures. Fullstack the Repai Trainer app — iOS (Expo/React Native) with subscriptions, Supabase backend and AI API integration. Experience in fast cycles, continuous delivery and end-to-end products. Solo dev, many ideas and eager to apply AI to everything.',
+    homeSubtitle: 'Applied AI and LLM Evaluation Specialist.',
+    homeDescription: 'I integrate LLMs into real-world use cases (education, economics, product), turn ideas into demos in days, and publish comparable results (cost/latency/accuracy). I aim to raise awareness of AI and anticipate its effects with evidence and practical judgment. I work as an independent end-to-end developer; short cycles, continuous delivery, and a focus on outcomes. 430+ GitHub contributions in the last 12 months (mostly private).',
     featuredProjects: 'Featured projects',
     viewAllProjects: 'View all projects',
     contact: 'Contact',
@@ -231,8 +231,8 @@ export const translations = {
     
     // Home page
     homeTitle: 'Francisco De Haro',
-    homeSubtitle: 'Développeur Full Stack spécialisé en Next.js et Intelligence Artificielle.',
-    homeDescription: 'Je construis des produits numériques en mettant l\'accent sur l\'expérience utilisateur et les architectures évolutives. Fullstack l\'app Repai Trainer — iOS (Expo/React Native) avec abonnements, backend Supabase et intégration d\'APIs IA. Expérience en cycles rapides, livraison continue et produits end-to-end. Dev solo, beaucoup d\'idées et envie d\'appliquer l\'IA à tout.',
+    homeSubtitle: 'Spécialiste de l’IA appliquée et de l’évaluation des LLM.',
+    homeDescription: 'J’intègre des LLM dans des cas d’usage réels (éducation, économie, produit), je transforme des idées en démos en quelques jours et je publie des résultats comparables (coût/latence/précision). Mon objectif est de faire connaître l’IA et d’anticiper ses effets sur la base de preuves et de pragmatisme. Je travaille en indépendant de bout en bout ; cycles courts, livraison continue et focus sur les résultats. 430+ contributions GitHub sur les 12 derniers mois (majoritairement privées).',
     featuredProjects: 'Projets en vedette',
     viewAllProjects: 'Voir tous les projets',
     contact: 'Contact',
