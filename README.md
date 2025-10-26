@@ -25,7 +25,6 @@ Full-Stack developer focused on **Next.js** and **AI**. Minimal, fast, and acces
 
 ## Preview
 
-Add a screenshot at `public/preview.png`:
 
 ![Site preview](./public/preview.png)
 
@@ -76,7 +75,7 @@ Requirements: Node.js 18+
 
 * **Personal info:** edit `app/page.tsx` (hero) and `app/layout.tsx` (footer)
 * **CV content:** edit `app/cv/page.tsx` and replace `public/cv.pdf`
-* **Projects:** update `app/data/projects.ts` (see comments for adding images)
+* **Projects:** update `app/data/projects.ts` 
 * **Colors:** adjust the palette in `tailwind.config.ts`
 
 ## Contact
