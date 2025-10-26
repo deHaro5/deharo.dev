@@ -240,6 +240,8 @@ export const projects: Project[] = [
     images: [
       '/projects/pre-paper/graph1.png',
       '/projects/pre-paper/graph2.png',
+      '/projects/pre-paper/graph3.png',
+
     ],
     features: [
       'Investigación opensource: resultados y metodología públicos',
